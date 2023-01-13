@@ -49,7 +49,7 @@
 
 ### Примеры использования
 ```
-kid = Schoolkid.objects.filter(full_name__contains='Фролов Иван')[0]  
+kid = Schoolkid.objects.get(full_name__contains='Фролов Иван')[0]  
 create_commendation(kid, 'Музыка')  
 fix_marks(kid)
 ```  
