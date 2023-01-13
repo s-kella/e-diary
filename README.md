@@ -33,8 +33,19 @@
 
 - Скачайте код
 - Установите зависимости командой `pip install -r requirements.txt`
-- Создайте БД командой `python3 manage.py migrate`
-- Запустите сервер командой `python3 manage.py runserver`
+- Создайте БД командой `python manage.py migrate`
+- Запустите сервер командой `python manage.py runserver`
+
+## Редактирование данных
+- Запустите Django Shell командой `python manage.py shell`
+- Скопируйте скрипты из файла scripts.py и вставьте в терминал
+- Найдите нужного ученика с помощью `Schoolkid.objects.filter(full_name__contains='Фамилия Имя')[0]`
+- Вызовите функцию, передав в неё ученика и, при необходимости, название предмета
+
+### Примеры использования
+`kid = Schoolkid.objects.filter(full_name__contains='Фролов Иван')[0]
+create_commendation(kid, 'Музыка')
+fix_marks(kid)`
 
 ## Переменные окружения
 
