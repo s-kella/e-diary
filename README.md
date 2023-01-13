@@ -43,9 +43,9 @@
 - Вызовите функцию, передав в неё ученика и, при необходимости, название предмета
 
 ### Примеры использования
-`kid = Schoolkid.objects.filter(full_name__contains='Фролов Иван')[0]
-create_commendation(kid, 'Музыка')
-fix_marks(kid)`
+`kid = Schoolkid.objects.filter(full_name__contains='Фролов Иван')[0]  
+create_commendation(kid, 'Музыка')  
+fix_marks(kid)`  
 
 ## Переменные окружения
 
