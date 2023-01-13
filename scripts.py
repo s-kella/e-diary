@@ -9,6 +9,12 @@ def remove_chastisements(schoolkid):
 
 
 def create_commendation(schoolkid, subject):
+    import random
     from datacenter.models import Commendation, Lesson
-    lesson = Lesson.objects.filter(year_of_study=schoolkid.year_of_study, group_letter=schoolkid.group_letter, subject__title=subject).order_by('-date').first()
-    Commendation.objects.create(created=lesson.date, schoolkid=schoolkid, subject=lesson.subject, teacher=lesson.teacher, text='Молодец!')
+    commendations = ['Молодец!', 'Отлично!', 'Хорошо!', 'Талантливо!', 'Прекрасно!']
+    try:
+        lesson = Lesson.objects.filter(year_of_study=schoolkid.year_of_study, group_letter=schoolkid.group_letter, subject__title=subject).order_by('-date').first()
+        Commendation.objects.create(created=lesson.date, schoolkid=schoolkid, subject=lesson.subject, teacher=lesson.teacher, text=random.choice(commendations))
+    except AttributeError:
+        print(f'Данные о предмете {subject} не найдены')
+
