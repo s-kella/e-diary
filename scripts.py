@@ -28,6 +28,3 @@ def create_commendation(schoolkid, subject):
         Commendation.objects.create(created=lesson.date, schoolkid=schoolkid, subject=lesson.subject, teacher=lesson.teacher, text=random.choice(commendations))
     except AttributeError:
         print(f'Данные о предмете {subject} не найдены')
-
-
-print(get_schoolkid('Фролов Иван'))
