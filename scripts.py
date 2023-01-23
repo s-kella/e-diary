@@ -1,3 +1,14 @@
+def get_schoolkid(full_name):
+    from datacenter.models import Schoolkid
+    try:
+        kid = Schoolkid.objects.get(full_name__contains=full_name)
+    except Schoolkid.DoesNotExist:
+        print('Такой ученик не существует.')
+    except Schoolkid.MultipleObjectsReturned:
+        print('Существует более одного ученика с таким именем, уточните запрос.')
+    return kid
+
+
 def fix_marks(schoolkid):
     from datacenter.models import Mark
     Mark.objects.filter(schoolkid=schoolkid, points__in=[2, 3]).update(points=5)
