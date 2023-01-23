@@ -2,11 +2,11 @@ def get_schoolkid(full_name):
     from datacenter.models import Schoolkid
     try:
         kid = Schoolkid.objects.get(full_name__contains=full_name)
+        return kid
     except Schoolkid.DoesNotExist:
         print('Такой ученик не существует.')
     except Schoolkid.MultipleObjectsReturned:
         print('Существует более одного ученика с таким именем, уточните запрос.')
-    return kid
 
 
 def fix_marks(schoolkid):
@@ -29,3 +29,5 @@ def create_commendation(schoolkid, subject):
     except AttributeError:
         print(f'Данные о предмете {subject} не найдены')
 
+
+print(get_schoolkid('Фролов Иван'))
