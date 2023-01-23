@@ -49,9 +49,10 @@
 
 ### Примеры использования
 ```
-kid = Schoolkid.objects.get(full_name__contains='Фролов Иван')[0]  
+kid = get_schoolkid('Фролов Иван')
 create_commendation(kid, 'Музыка')  
 fix_marks(kid)
+remove_chastisements(kid)
 ```  
 
 ## Переменные окружения
